@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        #winner{
+            text-align: center;
+        }
+        table{
+            background-color: black;
+            margin: 2vh auto;
+        }
+        td{
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            background-size: 50px 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <h3 id='title'>Tic Tac Toe</h3>
+    </div>
+    <div id="nav">
+        <a href="">Home</a>
+        <a href="">Puzzles</a>
+        <a href="">Games</a>
+    </div>
+    <div id="center">
+        <table>
+            <tr>
+                <td id='11'></td>
+                <td id='12'></td>
+                <td id='13'></td>
+            </tr>
+            <tr>
+                <td id='21'></td>
+                <td id='22'></td>
+                <td id='23'></td>
+            </tr>
+            <tr>
+                <td id='31'></td>
+                <td id='32'></td>
+                <td id='33'></td>
+            </tr>
+        </table>
+    </div>
+    <div id="winner">Winner: </div>
+    <script>
+        var squares = {};
+        var score = 0;
+        var moves = [];
+        var totalMoves = [];
+        var end = false;
+        var image = ["url('img/x.svg')", "url('img/o.svg')"];
+        var turn = 0;
+        for (var i = 1; i < 4; i++){
+            for (var j = 1; j < 4; j++){
+                squares[i+""+j] = 0;
+            }
+        }
+        function makeMove(id){
+            squares[id] = turn + 1;
+            turn^=1;
+            totalMoves.push(id);
+            if (checkWin()){
+                if (turn == 0){
+                    score = -10;
+                }else{
+                    score = 10;
+                }
+                end = true;
+            }else{
+                var str = "";
+                for (var x in squares){
+                    str += squares[x];
+                }
+                if (str.indexOf("0") == -1){
+                    score = 0; 
+                    end = true;
+                }
+            }
+        }
+        var paths = 0;
+        function negamax(depth){
+            if (depth == 0){
+                end = false;
+                var res = (end) ? [-score * (turn*2 - 1)] : [0];
+                score = 0;
+                return res;
+            }
+            if (end){
+                end = false;
+                var res = score;
+                score = 0;
+                return [-res * (turn*2 - 1)];
+            }
+            var min = -Infinity;
+            var best = null;
+            for (var x in squares){
+                if (squares[x] == 0){
+                    makeMove(x);
+                    moves.push(x);
+                    var next = -negamax(depth - 1)[0];
+                    squares[x] = 0;
+                    totalMoves.pop();
+                    turn ^= 1;
+                    if (next > min){
+                        min = next;
+                        best = x;
+                    }
+                }
+            }
+            return [min, best];
+        }
+        function driver(depth){
+            if (depth == 0){
+                end = false;
+                return 1;
+            }
+            if (end){
+                end = false;
+                return 1;
+            }
+            var positions =0;
+            for (var x in squares){
+                if (squares[x] == 0){
+                    makeMove(x);
+                    moves.push(x);
+                    var next = driver(depth - 1);
+                    squares[x] = 0;
+                    totalMoves.pop();
+                    turn ^= 1;
+                    positions += next;
+                }
+            }
+            return positions;
+        }
+        var pos = {};
+        function checkWin(){
+            for (var i = 1; i < 4; i++){
+                if (squares[i*10 + 1] == squares[i * 10 + 2] && squares[i * 10 + 2] == squares[i*10+3] && squares[i*10+3] != 0){
+                    return true;
+                }
+                if (squares[i + 10] == squares[i + 20] && squares[i + 20] == squares[i+30] && squares[i+30] != 0){
+                    return true;
+                }
+            }
+            if (squares[11] == squares[22] && squares[22] == squares[33] && squares[11] != 0){
+                return true;
+            }
+            if (squares[31] == squares[22] && squares[22] == squares[13] && squares[31] != 0){
+                return true;
+            }
+            return false;
+        }
+        var move;
+        move = negamax(3);
+        makeMove(move[1]);
+        document.getElementById(move[1]).style.backgroundImage = image[turn^1];
+        document.addEventListener('click', (e) => {
+            if (isFinite(parseInt(e.target.id))){
+                var id = parseInt(e.target.id);
+                if (squares[id] == 0 && !end){
+                    makeMove(id);
+                    document.getElementById(id).style.backgroundImage = image[turn^1];
+                    console.log((totalMoves.length <= 4) ? 5 : (9 - totalMoves.length));
+                    move = negamax(9);
+                    console.log(move);
+                    if (move.length == 2){
+                        makeMove(move[1]);
+                        document.getElementById(move[1]).style.backgroundImage = image[turn^1];
+                    }
+                    if (end){
+                        if (score == 0){
+                            document.getElementById("winner").innerHTML += "Draw!";
+                        }
+                        if (score == 10){
+                            document.getElementById('winner').innerHTML += "Computer!";
+                        }
+                        if (score == -10){
+                            document.getElementById('winner').innerHTML += "Human!";
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
