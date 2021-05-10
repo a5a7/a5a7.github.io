@@ -1,5 +1,5 @@
 var c = document.createElement('canvas');
-document.body.appendChild(c);
+document.body.innerHTML += "<div class='center'>"  + c.outerHTML + "</div>";
 var size = 80;
 c.width = 7 * size;
 c.height =6 * size;
