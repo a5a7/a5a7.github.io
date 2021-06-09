@@ -140,7 +140,7 @@ function negamax(alpha, beta, depth){
 }
 var h2 = document.createElement('h2');
 c.addEventListener('click', (e) => {
-    var row = ( Math.floor(e.x/size));
+    var row = ( Math.floor(e.layerX/size));
     if (rows[row] == 6){
         return;
     }
