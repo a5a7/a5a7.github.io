@@ -6,8 +6,10 @@ const size = 50;
 document.getElementById('done').addEventListener('click', (e) => {
     var turn = document.getElementById('turn').checked;
     document.getElementById('options').style.display = 'none';
-    if (!turn){
-        SecondSearching();
+    if (turn){
+	setTimeout(() => { 
+            SecondSearching()
+	}, 20)
     }
 })
 
