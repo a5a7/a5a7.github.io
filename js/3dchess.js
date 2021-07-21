@@ -36,7 +36,7 @@ var PiecesModels = {};
 var rows = "abcdefgh";
 
 function setPieceOnSq(piece, row, column){
-    loader.load('../gltf/Pieces2/' + piece + ".gltf", function (gltf){
+    loader.load('../gltf/' + piece + ".gltf", function (gltf){
         gltf.scene.scale.x = 50;
         gltf.scene.scale.y = 50;
         gltf.scene.scale.z = 50;
