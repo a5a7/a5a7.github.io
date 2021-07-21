@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style1.css">
+    <style>
+        body{
+            margin: 0;
+        }
+        #info {
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            font-size: 10vh;
+            font-family: monospace;
+            text-align: center;
+            z-index: 100;
+            display:block;
+        }
+        #options{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #efefef;
+            height: 70vh;
+            width: 50vw;
+            padding: 5vw 5vh;
+            font-family: Helvetica;
+            box-shadow: var(--bs);
+            text-align: center;
+            font-size: 2vw;
+        }
+        h3{
+            font-weight: 900;
+            margin: 1vh;
+            font-size: 5vh;
+        }
+        #turn-cb{
+            box-shadow: var(--ibs);
+            width: 80%;
+            padding: 2vh 0;
+            border-radius: 3vmin;
+            margin: auto;   
+        }
+        #turn{
+            appearance: none;
+            width: 1.5vw;
+            height: 1.5vw;
+            transform: translate(0px, 0.5vh);
+            background-color: white;
+            border: 1px solid black;
+            transition: 0.3s;
+        }
+        #turn:checked{
+            background-color: black;
+        }
+        #done{
+            width: 80%;
+            padding: 2vh;
+            margin: 2vh;
+        }
+    </style>
+</head>
+<body>
+    <!--<script src='../lib/chess.js'></script>-->
+    <div id="info"></div>
+    <div id="options">
+        <h3>Settings: </h3> 
+        <div id="turn-cb">
+            Play As: <input type="checkbox" id="turn">
+        </div>
+        <button id='done'>
+            Play!
+        </button>
+    </div>
+    <script src='../lib/chess.js'></script>
+    <script src='../js/ChessBook.js'></script>
+    <script src='../lib/three.js'></script>
+    <script src='../lib/orbit.js'></script>
+    <script src='../lib/gltf.js'></script>
+    <script src='../lib/mouseEv3d.js'></script>
+    <script src='../js/3dchess.js'></script>
+</body>
+</html>
