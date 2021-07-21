@@ -51,22 +51,16 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material.012",
+            "name" : "Material.003",
             "pbrMetallicRoughness" : {
-                "baseColorFactor" : [
-                    0.13286706805229187,
-                    0.13286706805229187,
-                    0.13286706805229187,
-                    1
-                ],
-                "metallicFactor" : 0.3801652789115906,
-                "roughnessFactor" : 0.9008264541625977
+                "metallicFactor" : 0.7599999904632568,
+                "roughnessFactor" : 0.6654545068740845
             }
         }
     ],
     "meshes" : [
         {
-            "name" : "Plane.011",
+            "name" : "Plane.001",
             "primitives" : [
                 {
                     "attributes" : {
