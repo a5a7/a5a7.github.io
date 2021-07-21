@@ -233,14 +233,8 @@ function clicked(mesh){
             if (m.flags.includes('p')){
                 var c = PiecesMap[sq];
                 var currentTurn = chess.turn() == 'w' ? 'b' : 'w';
-                var model = PiecesModels[currentTurn + "Q"].clone();
-                model.position.set(c.position.x, c.position.y, c.position.z);
-                console.log(model);
-                scene.add(model);
+                setPieceOnSq(currentTurn + "Q", "abcdefgh".indexOf(sq[0]), 8-parseInt(sq[1]));
                 scene.remove(c);
-                model.scale.set(50, 50, 50);
-                model[sq] = sq;
-                PiecesMap[sq] = model;
             }
             if (chess.game_over()){
                 if (chess.in_check()){
