@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebusters</title>
+    <style>
+        #en, #de{
+            letter-spacing: 4px;
+            font-family: 'Courier';
+            width: 40vw;
+            word-wrap: break-word;
+        }
+        #letters{
+            font-family: 'Courier';
+        }
+        #en{
+            float: left;
+        }
+        #de {
+            float: right;
+        }
+        td{
+            width: 5px;
+        }
+        a{
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Codebusters Practice</h2>
+    <a href="?code=Aristocrat&hint=false">Aristocrat with no hint</a>
+    <a href="?code=Aristocrat&hint=true">Aristocrat with hint</a>
+    <a href="?code=Patristocrat&hint=false">Patristocrat with no hint</a>
+    <a href="?code=Patristocrat&hint=true">Patristocrat with hint</a>
+    <p id="descrip">Description</p>
+    <p id="hint">Hint: None</p>
+    <div>
+        <p id="en">Encrypted:<br></p>
+        <p id="de">Decrypted:<br></p>
+    </div>
+    <table id="letters" border="1"></table>
+    <p id="freq">Frequencies: <br></p>
+    <script>
+        var quote;
+        var search = new URLSearchParams(location.search);
+        var codeType = search.get("code") == null ? "Aristocrat" : search.get("code");
+        var hint = search.get("hint") == "true";
+        var firstword = "";
+        var secondword = "";
+        var keyType = "";
+        var encryptedtext = "";
+        var decryptedtext = "";
+        var table = document.getElementById('letters');
+        var plainTextCipher = "abcdefghijklmnopqrstuvwxyz";
+        var text = "<tr>";
+        for (var i = 0; i < 13; i++){
+            text += "<td>" + plainTextCipher[i].toUpperCase() + "</td>";
+        }
+        text += "</tr>";
+        text += "<tr>";
+        for (var i = 0; i < 13; i++){
+            text += "<td><input type='text' maxlength=1 size=1 id=" + i + " pattern='[a-z]'></td>";
+        }
+        text += "</tr><tr>";
+        for (var i = 13; i < 26; i++){
+            text += "<td>" + plainTextCipher[i].toUpperCase() + "</td>";
+        }
+        text += "</tr>";
+        text += "<tr>";
+        for (var i = 13; i < 26; i++){
+            text += "<td><input type='text' maxlength=1 size=1 id=" + i + " pattern='[a-z]'></td>";
+        }
+        text += "</tr>"
+        table.innerHTML = text;
+        fetch("https://api.quotable.io/random?minLength=50?maxLength=140").then((response) => response.json()).then((data) => {
+            quote = (data);
+            document.getElementById('descrip').innerHTML = `Solve the ${keyType} ${codeType} which is an encrypted quote by ${quote.author}`;
+            encrypt();
+        });
+        function encrypt(){
+            if (codeType == "Aristocrat"){
+                var letters = plainTextCipher.split("");
+                console.log(letters);
+                for (var i = 0; i < 26; i++){
+                    letters = letters.sort(() => (Math.random()-0.5));
+                }
+                letters = letters.join("").toUpperCase();
+                console.log(plainTextCipher);
+                console.log(letters);
+                // encode quote //
+                var q = quote.content.toLowerCase();
+                var e = "";
+                var d = "";
+                var spacefound = false;
+                for (var i = 0; i < q.length; i++){
+                    if (q[i] == " ") spacefound = true;
+                    if (plainTextCipher.includes(q[i])){
+                        e += letters[plainTextCipher.indexOf(q[i])];
+                        d += q[i];
+                        if (!spacefound) firstword += q[i];
+                    }else{
+                        e += q[i];
+                        d += q[i];
+                    }
+                }
+                document.getElementById('en').innerHTML += e;
+                encryptedtext = e;
+                document.getElementById('de').innerHTML += e;
+                decryptedtext = d;
+                // LIST FREQUENCIES: 
+                var string = "";
+                var letters = plainTextCipher.split("");
+                var frequencies = new Array(26).fill(0);
+                var length = 0;
+                for (var i = 0; i < decryptedtext.length; i++){
+                    if (plainTextCipher.indexOf(decryptedtext[i].toLowerCase()) == -1) continue;
+                    length++;
+                    frequencies[letters.indexOf(decryptedtext[i].toLowerCase())]++;
+                }
+                for (var i = 0; i < 26; i++){
+                    string += "<b>" + letters[i].toUpperCase() + "</b>" + " - " + Math.round(frequencies[i]*1000/length)/10 + "%<br>";
+                }
+                document.getElementById('freq').innerHTML += string;
+            }else if (codeType == "Patristocrat"){
+                var letters = plainTextCipher.split("");
+                console.log(letters);
+                for (var i = 0; i < 26; i++){
+                    letters = letters.sort(() => (Math.random()-0.5));
+                }
+                letters = letters.join("").toUpperCase();
+                console.log(plainTextCipher);
+                console.log(letters);
+                // encode quote //
+                var q = quote.content.toLowerCase();
+                var e = "";
+                var d = "";
+                var spacefound = false;
+                for (var i = 0; i < q.length; i++){
+                    if (q[i] == " ") spacefound = true;
+                    if (plainTextCipher.includes(q[i])){
+                        e += letters[plainTextCipher.indexOf(q[i])];
+                        d += q[i];
+                        if (!spacefound) firstword += q[i];
+                    }
+                }
+                document.getElementById('en').innerHTML += e;
+                encryptedtext = e;
+                document.getElementById('de').innerHTML += e;
+                decryptedtext = d;
+                // LIST FREQUENCIES: 
+                var string = "";
+                var letters = plainTextCipher.split("");
+                var frequencies = new Array(26).fill(0);
+                var length = 0;
+                for (var i = 0; i < decryptedtext.length; i++){
+                    if (plainTextCipher.indexOf(decryptedtext[i].toLowerCase()) == -1) continue;
+                    length++;
+                    frequencies[letters.indexOf(decryptedtext[i].toLowerCase())]++;
+                }
+                for (var i = 0; i < 26; i++){
+                    string += "<b>" + letters[i].toUpperCase() + "</b>" + " - " + Math.round(frequencies[i]*1000/length)/10 + "%<br>";
+                }
+                document.getElementById('freq').innerHTML += string;
+            }
+            if (hint){
+                document.getElementById('hint').innerHTML = "Hint: The first word is " + firstword + ".";
+            }
+            setEvents();
+        }
+        function setEvents(){
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++){
+                inputs[i].addEventListener('keydown', (e) => {
+                    if (!plainTextCipher.includes(e.key) && e.key != "Backspace" && e.key != "Tab"){
+                        e.preventDefault();
+                    }
+                })
+            }
+            var interval = setInterval(() => {
+                var map = {};
+                for (var i = 0; i < inputs.length; i++){
+                    map[plainTextCipher[inputs[i].id].toUpperCase()] = inputs[i].value == "" ? plainTextCipher[inputs[i].id].toUpperCase() : inputs[i].value;
+                }
+                var text = "";
+                for (var i = 0; i < encryptedtext.length; i++){
+                    if (plainTextCipher.toUpperCase().includes(encryptedtext[i])){
+                        text += map[encryptedtext[i]];
+                    }else{
+                        text += encryptedtext[i];
+                    }
+                }
+                document.getElementById('de').innerHTML = "Decrypted: <br>" + text;
+                if (text == decryptedtext.toLowerCase()){
+                    alert("Finished");
+                    clearInterval(interval);
+                }
+            }, 4);
+        }
+    </script>
+</body>
+</html>
