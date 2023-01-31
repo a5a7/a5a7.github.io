@@ -83,13 +83,10 @@
         function encrypt(){
             if (codeType == "Aristocrat"){
                 var letters = plainTextCipher.split("");
-                console.log(letters);
                 for (var i = 0; i < 26; i++){
                     letters = letters.sort(() => (Math.random()-0.5));
                 }
                 letters = letters.join("").toUpperCase();
-                console.log(plainTextCipher);
-                console.log(letters);
                 // encode quote //
                 var q = quote.content.toLowerCase();
                 var e = "";
@@ -115,10 +112,10 @@
                 var letters = plainTextCipher.split("");
                 var frequencies = new Array(26).fill(0);
                 var length = 0;
-                for (var i = 0; i < decryptedtext.length; i++){
-                    if (plainTextCipher.indexOf(decryptedtext[i].toLowerCase()) == -1) continue;
+                for (var i = 0; i < encryptedtext.length; i++){
+                    if (plainTextCipher.indexOf(encryptedtext[i].toLowerCase()) == -1) continue;
                     length++;
-                    frequencies[letters.indexOf(decryptedtext[i].toLowerCase())]++;
+                    frequencies[letters.indexOf(encryptedtext[i].toLowerCase())]++;
                 }
                 for (var i = 0; i < 26; i++){
                     string += "<b>" + letters[i].toUpperCase() + "</b>" + " - " + Math.round(frequencies[i]*1000/length)/10 + "%<br>";
@@ -126,13 +123,10 @@
                 document.getElementById('freq').innerHTML += string;
             }else if (codeType == "Patristocrat"){
                 var letters = plainTextCipher.split("");
-                console.log(letters);
                 for (var i = 0; i < 26; i++){
                     letters = letters.sort(() => (Math.random()-0.5));
                 }
                 letters = letters.join("").toUpperCase();
-                console.log(plainTextCipher);
-                console.log(letters);
                 // encode quote //
                 var q = quote.content.toLowerCase();
                 var e = "";
@@ -155,10 +149,10 @@
                 var letters = plainTextCipher.split("");
                 var frequencies = new Array(26).fill(0);
                 var length = 0;
-                for (var i = 0; i < decryptedtext.length; i++){
-                    if (plainTextCipher.indexOf(decryptedtext[i].toLowerCase()) == -1) continue;
+                for (var i = 0; i < encryptedtext.length; i++){
+                    if (plainTextCipher.indexOf(encryptedtext[i].toLowerCase()) == -1) continue;
                     length++;
-                    frequencies[letters.indexOf(decryptedtext[i].toLowerCase())]++;
+                    frequencies[letters.indexOf(encryptedtext[i].toLowerCase())]++;
                 }
                 for (var i = 0; i < 26; i++){
                     string += "<b>" + letters[i].toUpperCase() + "</b>" + " - " + Math.round(frequencies[i]*1000/length)/10 + "%<br>";
