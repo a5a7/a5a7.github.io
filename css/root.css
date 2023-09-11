@@ -1,0 +1,65 @@
+:root{
+    --black: #000;
+    --font-family: Helvetica;
+}
+
+body{
+    font-family: var(--font-family);
+}
+
+#title{
+    color: var(--black);
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.tile-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tile{
+    width: 20vw;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 2px 2px 2px 2px #00000088;
+    transition: 0.3s;
+}
+
+.tile:hover{
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 5px 5px #00000088;
+}
+
+.tile .name{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.tile .name a{
+    text-decoration: none;
+    color: var(--black);
+    outline: none;
+}
+.tile .name::after{
+    position: relative;
+    content: "";
+    display: block;
+    border: 1px solid black;
+    width: 80%;
+    margin: auto;
+}
+
+.tile .description{
+    text-align: center;
+}
+
+@media (max-width: 800px){
+    .tile-container{
+        flex-direction: column;
+    }
+}
