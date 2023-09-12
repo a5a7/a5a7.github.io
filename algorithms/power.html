@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power</title>
+    <link rel="stylesheet" href="../css/root.css">
+</head>
+
+<body>
+    <div id="shadow"></div>
+    <h2 id="title">Power, or what is a<sup>b</sup>?</h2>
+    <hr>
+    <div style="text-align: center;">Basically, if you want to spam your friend with insanely large powers.</div>
+    <div class="input-group center bigger">
+        <input type="number" name="Base Number" placeholder="Base (a)" id="base">
+        <input type="number" name="Exponent Number" placeholder="Exponent (b)" id="exponent">
+        <input type="submit" value="Calculate" id="calculate">
+        <div class="error" id="error"></div>
+    </div>
+    <div id="output-container" class="center">
+        <div>
+            <div id="output-title">Result: <button id="output-close">&times;</button></div>
+        </div>
+        <div id="result">Your result: </div>
+    </div>
+    <script src="../lib/html.js"></script>
+    <script src="../js/power.js"></script>
+</body>
+
+</html>

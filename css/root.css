@@ -1,10 +1,13 @@
 :root{
     --black: #000;
     --font-family: Helvetica;
+    --box-shadow-classic: 2.1px 2.1px 2px 2px #00000088;
+    --red: #ff1414;
 }
 
 body{
     font-family: var(--font-family);
+    margin: 0;
 }
 
 #title{
@@ -12,6 +15,7 @@ body{
     font-size: 30px;
     text-align: center;
     font-weight: 600;
+    margin: 0;
 }
 
 .tile-container{
@@ -24,7 +28,7 @@ body{
     width: 20vw;
     padding: 20px;
     margin: 20px;
-    box-shadow: 2px 2px 2px 2px #00000088;
+    box-shadow: var(--box-shadow-classic);
     transition: 0.3s;
 }
 
@@ -56,6 +60,79 @@ body{
 
 .tile .description{
     text-align: center;
+}
+
+
+.subtitle{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#output-container{
+    background-color: white;
+    width: 60vw;
+    height: 60vh;
+    z-index: 4;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: auto;
+}
+
+#output-container #output-title{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#output-container #output-close{
+    border: 0;
+    font-size: 18px;
+    float: right;
+    color: red;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+#shadow{
+    position: fixed;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000005f;
+}
+
+.input-group{
+    margin: 5px;
+    width: fit-content;
+    padding: 5px 15px;
+    box-shadow: var(--box-shadow-classic);
+    border-radius: 5px;
+    text-align: center;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid var(--black);
+    box-sizing: border-box;
+    width: 200px;
+    display: block;
+    outline: none;
+}
+
+.error{
+    color: var(--red);
+    margin: 5px;
+    font-size: 15px;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2,1.2);;
 }
 
 @media (max-width: 800px){
