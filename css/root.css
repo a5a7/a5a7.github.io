@@ -1,30 +1,50 @@
-:root{
+:root {
     --black: #000;
     --font-family: Helvetica;
     --box-shadow-classic: 2.1px 2.1px 2px 2px #00000088;
     --red: #ff1414;
 }
 
-body{
+body {
     font-family: var(--font-family);
     margin: 0;
 }
 
-#title{
+a{
+    text-decoration: none;
+    color: var(--black);
+}
+
+#website-left, #website-right{
+    position: absolute;
+    top: calc(3vh + 15px);
+    font-size: 15px;
+}
+
+#website-left{
+    left: 30px;
+}
+
+#website-right{
+    right: 30px;
+}
+
+#title {
     color: var(--black);
     font-size: 30px;
     text-align: center;
     font-weight: 600;
     margin: 0;
+    padding: 3vh 0;
 }
 
-.tile-container{
+.tile-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.tile{
+.tile {
     width: 20vw;
     padding: 20px;
     margin: 20px;
@@ -32,24 +52,25 @@ body{
     transition: 0.3s;
 }
 
-.tile:hover{
+.tile:hover {
     transform: translate(-3px, -3px);
     box-shadow: 5px 5px 5px 5px #00000088;
 }
 
-.tile .name{
+.tile .name {
     text-align: center;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-.tile .name a{
+.tile .name a {
     text-decoration: none;
     color: var(--black);
     outline: none;
 }
-.tile .name::after{
+
+.tile .name::after {
     position: relative;
     content: "";
     display: block;
@@ -58,17 +79,45 @@ body{
     margin: auto;
 }
 
-.tile .description{
+.tile .description {
     text-align: center;
 }
 
-
-.subtitle{
-    font-size: 20px;
-    font-weight: 600;
+.input-title {
+    font-size: 25px;
 }
 
-#output-container{
+.emph {
+    font-weight: 900;
+    display: inline;
+}
+
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#output-container {
     background-color: white;
     width: 60vw;
     height: 60vh;
@@ -78,15 +127,16 @@ body{
     padding: 20px;
     border-radius: 20px;
     overflow: auto;
+    font-family: attr(font);
 }
 
-#output-container #output-title{
+#output-container #output-title {
     color: black;
     font-size: 18px;
     font-weight: 500;
 }
 
-#output-container #output-close{
+#output-container #output-close {
     border: 0;
     font-size: 18px;
     float: right;
@@ -95,7 +145,7 @@ body{
     background-color: transparent;
 }
 
-#shadow{
+#shadow {
     position: fixed;
     z-index: 3;
     width: 100vw;
@@ -103,7 +153,7 @@ body{
     background-color: #0000005f;
 }
 
-.input-group{
+.input-group {
     margin: 5px;
     width: fit-content;
     padding: 5px 15px;
@@ -112,31 +162,33 @@ body{
     text-align: center;
 }
 
-input{
+input {
     padding: 5px;
-    margin: 5px;
-    border: 1px solid var(--black);
+    margin: 9px auto;
+    box-shadow: 0px 0.9px 1px 1px #0000004a;
+    border: 0;
     box-sizing: border-box;
     width: 200px;
     display: block;
     outline: none;
+    border-radius: 4px;
 }
 
-.error{
+.error {
     color: var(--red);
     margin: 5px;
     font-size: 15px;
 }
 
-.center{
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.2,1.2);;
+    transform: translate(-50%, -50%) scale(1.2, 1.2);
 }
 
-@media (max-width: 800px){
-    .tile-container{
+@media (max-width: 800px) {
+    .tile-container {
         flex-direction: column;
     }
 }

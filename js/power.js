@@ -19,9 +19,7 @@ function Power(a, b){
 }
 
 document.getElementById('calculate').addEventListener("click", (e) => {
-    console.log("HELLO");
     e.preventDefault();
-    console.log("CALCULATED");
     var a = HTML.Value("base");
     var b = HTML.Value("exponent");
     HTML.ID("result").innerHTML = "Your result is <div>" + a + "<sup>" + b + "</sup>="+Power(a, b) + "</div>";

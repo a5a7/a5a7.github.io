@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivatives</title>
+    <link rel="stylesheet" href="../css/root.css">
+</head>
+
+<body>
+    <div id="website-left"><a href="../index.html">Home</a></div>
+    <div id="website-right">a5a7</div>
+    <h2 id="title">Derivatives</h2>
+    <hr>
+    <div style="text-align: center;">You are too lazy to calculate a ruthless derivative. You are justified.</div>
+    <div style="text-align: center;">Rules and limitations (will hopefully be fixed): The simplification is not good; hopefully will get better. Use "Multiply(a,b)" to get a*b (similar for Divide, Add, Subtract, Log, and Power). Note that trignometric functions aren't supported currently.</div>
+    <div class="input-group center bigger">
+        <div class="input-title">Derivatives, but <div class="emph">basic</div></div>
+        <input type="text" name="exp" id="exp" placeholder="Write the function (without f(x))">
+        <input type="submit" value="Calculate!" id="calculate">
+        <div id="out" style="overflow: none;">Your expression will appear here</div>
+    </div>
+    <script src="../lib/html.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            },
+            CommonHTML: { linebreaks: { automatic: true } },
+            SVG: { linebreaks: { automatic: true } },
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../lib/math.js "></script>
+    <script src="../js/derivative.js"></script>
+</body>
+
+</html>
