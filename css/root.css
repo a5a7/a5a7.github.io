@@ -191,4 +191,22 @@ input {
     .tile-container {
         flex-direction: column;
     }
+    .tile{
+        width: 80vw;
+        margin: 2vh auto;
+    }
+}
+
+video, canvas{
+    display: block;
+    margin: 1vh auto;
+}
+
+.button{
+    appearance: none;
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: 0.5vh auto;
 }
