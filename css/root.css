@@ -46,8 +46,8 @@ a{
 
 .tile {
     width: 20vw;
-    padding: 20px;
-    margin: 20px;
+    padding: 2vh 1vw;
+    margin: 2vh 1vw;
     box-shadow: var(--box-shadow-classic);
     transition: 0.3s;
 }
