@@ -9,12 +9,24 @@
 </head>
 
 <body>
-    <div id="website-left"><a href="../index.html">Home</a></div>
-    <div id="website-right">a5a7</div>
-    <h2 id="title">Flocks of pixels?</h2>
-    <hr>
-    <div style="text-align: center;">This looks like anything but boids...</div>
+    <div id="page-container">
+        <div id="page-header">
+            <div id="website-left"><a href="../index.html">Home</a></div>
+            <div id="website-right">a5a7</div>
+            <h2 id="title">Flocking</h2>
+            <hr>
+        </div>
+        <div id="gen-container">
+            <div id="gen-output"></div>
+            <div id="gen-controls">
+                <input type="number" id="boids" placeholder="Number of boids">
+                <input type="submit" value="Simulate" id="simulate">
+            </div>
+        </div>
+    </div>
     <script src="../lib/canvas.js"></script>
+    <script src="../lib/html.js"></script>
     <script src="../js/flocking.js"></script>
 </body>
+
 </html>
