@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" href="../css/root.css">
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="page-header">
+            <div id="website-left"><a href="../index.html">Home</a></div>
+            <div id="website-right">a5a7</div>
+            <h2 id="title">Conway's Game of Life</h2>
+            <hr>
+        </div>
+        <div id="gen-container">
+            <div id="gen-output"></div>
+            <div id="gen-controls">
+                <div class="checkbox-group">
+                    <input type="checkbox" name="color" id="color">
+                    <label for="color">Black/White</label>
+                </div>
+                <input type="submit" value="Simulate" id="simulate">
+            </div>
+        </div>
+    </div>
+    <script src="../lib/canvas.js"></script>
+    <script src="../lib/html.js"></script>
+    <script src="../js/conway.js"></script>
+</body>
+
+</html>

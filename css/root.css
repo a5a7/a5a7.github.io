@@ -5,6 +5,7 @@
     --box-shadow-light-input: 0px 0px 2px 2px #8b8b8b4a;
     --box-shadow-light: 0px 0px 3px 3px #8b8b8b4a;
     --box-shadow-hover: 0 0 3px 3px #4f4f4f88;
+    --green: #11ff6c;
     --red: #ff1414;
 }
 
@@ -227,6 +228,36 @@ video, canvas{
     background-color: #efefef;
 }
 
+.checkbox-group{
+    padding: 8px;
+    margin: 9px auto;
+    box-shadow: var(--box-shadow-light-input);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"]{
+    appearance: none;
+    background-color: white;
+    display: inline;
+    box-shadow: none;
+    margin: 0;
+    border-radius: 0;
+    height: 20px;
+    width: 20px;
+    transition: 0.3s;
+}
+
+.checkbox-group input[type="checkbox"]:checked{
+    background-color: var(--green);
+}
+
+.checkbox-group label{
+    display: inline;
+    font-size: 13px;
+    margin: 3px auto;
+}
 
 @media (max-width: 800px) {
     .tile-container {
