@@ -229,12 +229,13 @@ video, canvas{
 }
 
 .checkbox-group{
-    padding: 8px;
+    padding: 5px;
     margin: 9px auto;
     box-shadow: var(--box-shadow-light-input);
     border-radius: 4px;
     display: flex;
     align-items: center;
+    width: 190px;
 }
 
 .checkbox-group input[type="checkbox"]{
@@ -247,6 +248,7 @@ video, canvas{
     height: 20px;
     width: 20px;
     transition: 0.3s;
+    border: 1px solid var(--black);
 }
 
 .checkbox-group input[type="checkbox"]:checked{
@@ -281,5 +283,13 @@ video, canvas{
     }
     #gen-controls input[type="submit"], #gen-controls input[type="button"]{
         grid-column: 1 / 4;
+    }
+    #gen-controls .checkbox-group{
+        width: auto;
+        margin: 1vw 1vh;
+    }
+    #gen-controls .checkbox-group input[type="checkbox"]{
+        width: 20px;
+        margin: 0;
     }
 }
