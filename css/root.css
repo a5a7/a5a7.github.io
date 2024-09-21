@@ -1,7 +1,7 @@
 :root {
     --black: #000;
     --font-family: Helvetica;
-    --box-shadow-classic: 0 0 3px 3px #a2a2a288;
+    --box-shadow-classic: 0 0 2px 2px #a2a2a288;
     --box-shadow-light-input: 0px 0px 2px 2px #8b8b8b4a;
     --box-shadow-light: 0px 0px 3px 3px #8b8b8b4a;
     --box-shadow-hover: 0 0 3px 3px #4f4f4f88;
@@ -25,8 +25,9 @@ a{
 
 #website-left, #website-right{
     position: absolute;
-    top: calc(3vh + 15px);
+    top: calc(3vh + 22.5px);
     font-size: 15px;
+    bottom: 0;
 }
 
 #website-left{
@@ -42,8 +43,9 @@ a{
     font-size: 30px;
     text-align: center;
     font-weight: 600;
-    margin: 0;
-    padding: 3vh 0;
+    margin: 0 0 2px 0;
+    padding: 5vh 0;
+    box-shadow: var(--box-shadow-classic);
 }
 
 .tile-container {
@@ -53,8 +55,8 @@ a{
 }
 
 .tile {
-    padding: 2vh 1vw;
-    margin: 2vh 1vw;
+    padding: 3vh 2vw;
+    margin: 1vh min(0.75vw, 1vh);
     box-shadow: var(--box-shadow-classic);
     transition: 0.3s;
     border-radius: 3px;
@@ -94,7 +96,7 @@ a{
 .subtitle {
     font-size: 25px;
     font-weight: 600;
-    margin: 2vh 2vw 0 2vw;
+    margin: 1vh min(1.75vw, calc(1vw + 1vh)) 0 min(1.75vw, calc(1vw + 1vh));
 }
 
 ::-webkit-scrollbar {
@@ -266,7 +268,10 @@ video, canvas{
         grid-template-columns: 1fr;
     }
     .tile{
-        margin: 2vh 1vw;
+        margin: 1vh;
+    }
+    .subtitle{
+        margin: 0.5vh calc(1vw + 1vh);
     }
     #gen-container{
         flex-direction: column;
