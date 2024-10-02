@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --black: #000;
-    --font-family: Helvetica;
+    --font-family: "Roboto";
     --box-shadow-classic: 0 0 2px 2px #a2a2a288;
     --box-shadow-light-input: 0px 0px 2px 2px #8b8b8b4a;
     --box-shadow-light: 0px 0px 3px 3px #8b8b8b4a;
@@ -156,14 +158,14 @@ a{
 .input-group {
     margin: 5px;
     width: fit-content;
-    padding: 5px 15px;
+    padding: 30px 15px;
     box-shadow: var(--box-shadow-classic);
     border-radius: 5px;
     text-align: center;
 }
 
 input {
-    padding: 5px;
+    padding: 7px;
     margin: 9px auto;
     box-shadow: var(--box-shadow-light-input);
     border: 0;
@@ -250,7 +252,6 @@ video, canvas{
     height: 20px;
     width: 20px;
     transition: 0.3s;
-    border: 1px solid var(--black);
 }
 
 .checkbox-group input[type="checkbox"]:checked{
