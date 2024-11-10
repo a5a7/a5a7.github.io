@@ -53,9 +53,9 @@ body {
 
 .article-tile{
     box-shadow: var(--box-shadow-classic);
-    margin: 2vh 3vw;
+    margin: max(2vh, 1.5vw);
     border-radius: 3px;
-    padding: 1vh 1vw;
+    padding: min(2vh, 1.5vw);
     transition: 0.3s;
 }
 
@@ -70,4 +70,11 @@ body {
 
 .article-date{
     font-style: italic;
+}
+
+.tag{
+    background-color: #efefef;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 5px 7px;
 }

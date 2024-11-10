@@ -98,7 +98,7 @@ a{
 .subtitle {
     font-size: 25px;
     font-weight: 600;
-    margin: 1vh min(1.75vw, calc(1vw + 1vh)) 0 min(1.75vw, calc(1vw + 1vh));
+    margin: 1vh min(1.75vw, calc(1vw + 1vh)) 1vh min(1.75vw, calc(1vw + 1vh));
 }
 
 ::-webkit-scrollbar {
@@ -158,7 +158,7 @@ a{
 .input-group {
     margin: 5px;
     width: fit-content;
-    padding: 30px 15px;
+    padding: 20px;
     box-shadow: var(--box-shadow-classic);
     border-radius: 5px;
     text-align: center;
