@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="../css/root.css">
+    <style>
+        #sudoku {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-collapse: collapse;
+        }
+
+        #sudoku td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+        }
+
+        #sudoku td>input[type="number"] {
+            margin: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 0 !important;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .row-0,
+        .row-3,
+        .row-6 {
+            border-top: 4px solid black !important;
+        }
+
+        .col-0,
+        .col-3,
+        .col-6 {
+            border-left: 4px solid black !important;
+        }
+
+        .col-8 {
+            border-right: 4px solid black !important;
+        }
+
+        .row-8 {
+            border-bottom: 4px solid black !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="page-header">
+            <div id="website-left"><a href="../index.html">Home</a></div>
+            <div id="website-right">a5a7</div>
+            <h2 id="title">Sudoku</h2>
+        </div>
+        <div id="gen-container">
+            <div id="gen-output"></div>
+            <div id="gen-controls">
+                <input type="submit" value="Solve" id="solve">
+            </div>
+        </div>
+    </div>
+    <script src="../lib/html.js"></script>
+    <script src="../js/sudoku.js"></script>
+</body>
+
+</html>
