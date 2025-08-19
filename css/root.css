@@ -2,6 +2,8 @@
 
 :root {
     --black: #000;
+    --white: #fff;
+    --gray: #efefef;
     --font-family: "Roboto";
     --box-shadow-classic: 0 0 1px 1px #a2a2a288;
     --box-shadow-light-input: 0px 0px 1px 1px #8b8b8b4a;
@@ -16,27 +18,28 @@ body {
     margin: 0;
 }
 
-hr{
+hr {
     margin: 0;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--black);
 }
 
-#website-left, #website-right{
+#website-left,
+#website-right {
     position: absolute;
     top: calc(3vh + 22.5px);
     font-size: 15px;
     bottom: 0;
 }
 
-#website-left{
+#website-left {
     left: 30px;
 }
 
-#website-right{
+#website-right {
     right: 30px;
 }
 
@@ -52,8 +55,15 @@ a{
 
 .tile-container {
     display: grid;
-    margin: 0 1vw;
+    margin: 0 5vw;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.minitile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 1vw;
 }
 
 .tile {
@@ -64,7 +74,19 @@ a{
     border-radius: 3px;
 }
 
+.minitile {
+    padding: 10px 12px;
+    margin: 6px;
+    box-shadow: var(--box-shadow-classic);
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
 .tile:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.minitile:hover {
     box-shadow: var(--box-shadow-hover);
 }
 
@@ -96,9 +118,20 @@ a{
 
 
 .subtitle {
+    text-align: center;
     font-size: 25px;
     font-weight: 600;
-    margin: 1vh min(1.75vw, calc(1vw + 1vh)) 1vh min(1.75vw, calc(1vw + 1vh));
+    margin: 1vh min(1.75vw, calc(1vw + 1vh));
+}
+
+.text {
+    text-align: center;
+    font-weight: 400;
+    margin: 0vh 0 3vh 0;
+}
+
+.container {
+    padding: 2vh 0;
 }
 
 ::-webkit-scrollbar {
@@ -189,14 +222,15 @@ input {
     transform: translate(-50%, -50%) scale(1.2, 1.2);
 }
 
-video, canvas{
+video,
+canvas {
     display: block;
     margin: 1vh auto;
     max-width: 80vw;
     max-height: 80vh;
 }
 
-.button{
+.button {
     appearance: none;
     display: block;
     border: 1px solid black;
@@ -205,34 +239,34 @@ video, canvas{
     margin: 0.5vh auto;
 }
 
-#page-container{
+#page-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-#page-header{
+#page-header {
     flex: 0 1 auto;
 }
 
-#gen-container{
+#gen-container {
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     align-items: stretch;
 }
 
-#gen-output{
+#gen-output {
     flex: 8;
 }
 
-#gen-controls{
+#gen-controls {
     flex: 2;
     padding: 2vh 2vw;
     background-color: #efefef;
 }
 
-.checkbox-group{
+.checkbox-group {
     padding: 7px;
     margin: 9px auto;
     box-shadow: var(--box-shadow-light-input);
@@ -242,7 +276,7 @@ video, canvas{
     width: calc(100% - 14px);
 }
 
-.checkbox-group input[type="checkbox"]{
+.checkbox-group input[type="checkbox"] {
     appearance: none;
     background-color: white;
     display: inline;
@@ -254,11 +288,11 @@ video, canvas{
     transition: 0.3s;
 }
 
-.checkbox-group input[type="checkbox"]:checked{
+.checkbox-group input[type="checkbox"]:checked {
     background-color: var(--green);
 }
 
-.checkbox-group label{
+.checkbox-group label {
     display: inline;
     font-size: 13px;
     margin: 3px auto;
@@ -266,39 +300,59 @@ video, canvas{
 
 @media (max-width: 800px) {
     .tile-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-    .tile{
+
+    .tile {
         margin: 1vh;
     }
-    .subtitle{
+
+    .subtitle {
         margin: 0.5vh calc(1vw + 1vh);
     }
-    #gen-container{
+
+    #gen-container {
         flex-direction: column;
     }
-    #gen-controls{
+
+    #gen-controls {
         display: flex;
         align-content: start;
         flex-wrap: wrap;
     }
-    #gen-controls input{
+
+    #gen-controls input {
         flex-basis: 33vw;
         flex-grow: 1;
         display: inline;
         margin: 5px;
     }
-    #gen-controls input[type="submit"], #gen-controls input[type="button"]{
+
+    #gen-controls input[type="submit"],
+    #gen-controls input[type="button"] {
         flex-basis: 100%;
         width: 100% !important;
     }
-    #gen-controls .checkbox-group{
+
+    #gen-controls .checkbox-group {
         margin: 5px;
         flex-basis: 100%;
         width: 100%;
     }
-    #gen-controls .checkbox-group input[type="checkbox"]{
+
+    #gen-controls .checkbox-group input[type="checkbox"] {
         width: 20px !important;
         flex: 0 0 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .subtitle {
+        text-align: center;
+    }
+
+    .tile-container {
+        grid-template-columns: 1fr;
     }
 }
