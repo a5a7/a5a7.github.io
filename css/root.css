@@ -3,7 +3,7 @@
 :root {
     --black: #000;
     --white: #fff;
-    --gray: #efefef;
+    --gray: #f5f5f5;
     --font-family: "Roboto";
     --box-shadow-classic: 0 0 1px 1px #a2a2a288;
     --box-shadow-light-input: 0px 0px 1px 1px #8b8b8b4a;
@@ -197,7 +197,7 @@ a {
     text-align: center;
 }
 
-input {
+input, select {
     padding: 7px;
     margin: 9px auto;
     box-shadow: var(--box-shadow-light-input);
@@ -207,6 +207,15 @@ input {
     display: block;
     outline: none;
     border-radius: 4px;
+}
+
+label {
+    display: block;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: var(--gray);
 }
 
 .error {
@@ -257,13 +266,13 @@ canvas {
 }
 
 #gen-output {
-    flex: 8;
+    flex: 3;
 }
 
 #gen-controls {
-    flex: 2;
+    flex: 1;
     padding: 2vh 2vw;
-    background-color: #efefef;
+    background-color: var(--gray);
 }
 
 .checkbox-group {
@@ -295,7 +304,7 @@ canvas {
 .checkbox-group label {
     display: inline;
     font-size: 13px;
-    margin: 3px auto;
+    margin: 3px 4px;
 }
 
 @media (max-width: 800px) {
