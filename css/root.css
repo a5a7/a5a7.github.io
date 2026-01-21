@@ -89,12 +89,17 @@ a {
     color: var(--black);
 }
 
+#page-header {
+    flex: 0 1 auto;
+    display: flex;
+    box-shadow: var(--box-shadow-classic);
+    align-items: center;
+}
+
 #website-left,
 #website-right {
-    position: absolute;
-    top: calc(3vh + 22.5px);
     font-size: 15px;
-    bottom: 0;
+    margin: 0 30px;
 }
 
 #website-left {
@@ -108,11 +113,11 @@ a {
 #title {
     color: var(--black);
     font-size: 30px;
+    flex-grow: 1;
     text-align: center;
     font-weight: 600;
     margin: 0 0 1px 0;
     padding: 5vh 0;
-    box-shadow: var(--box-shadow-classic);
 }
 
 .tile-container {
@@ -313,10 +318,6 @@ canvas {
     display: flex;
     flex-direction: column;
     height: 100vh;
-}
-
-#page-header {
-    flex: 0 1 auto;
 }
 
 #gen-container {
