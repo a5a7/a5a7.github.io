@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindenmayer Systems</title>
+    <link rel="stylesheet" href="../css/root.css">
+</head>
+
+<body>
+    <div id="page-container">
+        <div id="page-header">
+            <div id="website-left"><a href="../index.html">Home</a></div>
+            <div id="website-right">a5a7</div>
+            <h2 id="title">Lindenmayer Systems</h2>
+        </div>
+        <div id="gen-container">
+            <div id="gen-output"></div>
+            <div id="gen-controls">
+                <textarea name="lsystem-input" id="lsystem-input" style="overflow: hidden;">variables: X F
+constants: + - [ ]
+start: -X
+rules:
+X -> F+[[X]-X]-F[-FX]+X
+F -> FF
+translations:
+F -> draw 10
+X -> nothing
++ -> rotate 25
+- -> rotate -25
+[ -> push-stack
+] -> pop-stack</textarea>
+                    <input type="number" name="iterations" id="iterations" placeholder="Iterations (default is 3)">
+                    <input type="submit" id="submit" value="Draw">
+                <div style="display: block; text-align: center; width: 100%; margin: 2px 0;">Not sure how this works? Check <a href="https://en.wikipedia.org/wiki/L-system" style="color: blue;">Wikipedia</a>.</div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/canvas.js"></script>
+    <script src="../js/lsystems.js"></script>
+</body>
+
+</html>

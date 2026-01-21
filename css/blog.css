@@ -2,14 +2,17 @@
 
 :root {
     --black: #000;
+    --white: #fff;
+    --gray: #f5f5f5;
     --font-family: "Roboto";
-    --box-shadow-classic: 0 0 2px 2px #a2a2a288;
-    --box-shadow-light-input: 0px 0px 2px 2px #8b8b8b4a;
-    --box-shadow-light: 0px 0px 3px 3px #8b8b8b4a;
-    --box-shadow-hover: 0 0 3px 3px #4f4f4f88;
+    --box-shadow-classic: 0 0 1px 1px #a2a2a288;
+    --box-shadow-light-input: 0px 0px 1px 1px #8b8b8b4a;
+    --box-shadow-light: 0px 0px 1px 1px #8b8b8b4a;
+    --box-shadow-hover: 0 0 1px 1px #4f4f4f88;
     --green: #11ff6c;
     --red: #ff1414;
 }
+
 
 body {
     font-family: var(--font-family);

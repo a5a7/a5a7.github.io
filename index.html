@@ -10,65 +10,74 @@
 </head>
 
 <body>
-    <h2 id="title">Welcome to my website!</h2>
-    <div class="container">
-        <h3 class="subtitle">Projects</h3>
-        <div class="tile-container">
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./simulation/langton.html">Langton's Ant</a></div>
-                <div class="description">An ant on a grid.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./games/sudoku.html">Sudoku Solver</a></div>
-                <div class="description">Can solve regular Sudokus.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./simulation/conway.html">Conway's Game of Life</a></div>
-                <div class="description">Still lifes, oscillators, and spaceships.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./games/maze.html">Maze Generator</a></div>
-                <div class="description">Creates a maze that can be downloaded.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./simulation/flocking.html">Flocking</a></div>
-                <div class="description">Birds are not spies.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./algorithms/derivative.html">Derivatives</a></div>
-                <div class="description">Use a basic calculator to get some help. Beware of simplification however.
-                </div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./algorithms/power.html">Powers</a></div>
-                <div class="description">Calculating extremely large powers using binary exponentiation. Just don't
-                    overdo it.</div>
-            </div>
-            <div class="tile">
-                <div class="img"></div>
-                <div class="name"><a href="./algorithms/sorting.html">Sorting</a></div>
-                <div class="description">A few sorting algorithms animated in JS. Probably will add more.</div>
+    <div id="nav">
+        <div class="nav-main">a5a7</div>
+        <a href="#projects">
+            <div class="nav-button">Projects</div>
+        </a>
+    </div>
+    <div class="main-container">
+        <div class="left-container">
+            <img id="profile-image" src="./img/a5a7.png" alt="Profile Picture for a5a7.">
+        </div>
+        <div class="right-container">
+            <h2 class="emph">Hello, I am a5a7!</h2>
+            <h3>I'm an aspiring mathematician and computer scientist.<br> Here are links to my profiles on other
+                websites:</h3>
+            <div class="minitile-container">
+                <a href="https://github.com/a5a7">
+                    <div class="minitile"><img src="./img/github.svg" alt="Github" width="20"></div>
+                </a>
+                <a href="https://codeforces.com/profile/a5a7">
+                    <div class="minitile"><img src="./img/codeforces.svg" alt="Codeforces" width="20"></div>
+                </a>
             </div>
         </div>
     </div>
-    <div class="container">
-        <h3 class="subtitle">Profiles</h3>
-        <div class="minitile-container">
-            <a href="https://github.com/a5a7">
-                <div class="minitile"><img src="./img/github.svg" alt="Github" width="20"></div>
+    <hr>
+    <div id="projects" class="container">
+        <h2 class="subtitle">Projects</h2>
+        <h3>This is a collection of my projects that are (semi)complete.</h3>
+        <div class="tile-container">
+            <a href="./simulation/lsystems.html" class="tile">
+                <div class="name">Lindmayer System</div>
+                <div class="description">Fractals and plants.</div>
             </a>
-            <a href="https://codeforces.com/profile/a5a7">
-                <div class="minitile"><img src="./img/codeforces.svg" alt="Codeforces" width="20"></div>
+            <a href="./simulation/langton.html" class="tile">
+                <div class="name">Langton's Ant</div>
+                <div class="description">An ant on a grid.</div>
+            </a>
+            <a href="./games/sudoku.html" class="tile">
+                <div class="name">Sudoku Solver</div>
+                <div class="description">Can solve regular Sudokus.</div>
+            </a>
+            <a href="./simulation/conway.html" class="tile">
+                <div class="name">Conway's Game of Life</div>
+                <div class="description">Still lifes, oscillators, and spaceships.</div>
+            </a>
+            <a href="./games/maze.html" class="tile">
+                <div class="name">Maze Generator</div>
+                <div class="description">Create and download mazes.</div>
+            </a>
+            <a href="./simulation/flocking.html" class="tile">
+                <div class="name">Flocking</div>
+                <div class="description">Birds are not spies.</div>
+            </a>
+            <a href="./algorithms/derivative.html" class="tile">
+                <div class="name">Derivatives</div>
+                <div class="description">Use a basic calculator to get some help. Beware of simplification however.
+                </div>
+            </a>
+            <a href="./algorithms/power.html" class="tile">
+                <div class="name">Powers</div>
+                <div class="description">Calculating extremely large powers using binary exponentiation. Just don't
+                    overdo it.</div>
+            </a>
+            <a href="./algorithms/sorting.html" class="tile">
+                <div class="name">Sorting</div>
+                <div class="description">A few sorting algorithms animated in JS. Probably will add more.</div>
             </a>
         </div>
-        <img style="margin: 1vh auto; display: block;" src="./img/project_euler.png" alt="Project Euler a5a7">
     </div>
 </body>
 
