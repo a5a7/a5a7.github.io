@@ -94,6 +94,7 @@ a {
     display: flex;
     box-shadow: var(--box-shadow-classic);
     align-items: center;
+    z-index: 1;
 }
 
 #website-left,
