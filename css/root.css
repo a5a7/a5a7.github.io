@@ -70,7 +70,7 @@ h4 {
 #profile-image {
     width: 60%;
     box-shadow: var(--box-shadow-classic);
-    border-radius: 20%;
+    border-radius: 10%;
 }
 
 body {
