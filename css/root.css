@@ -148,6 +148,10 @@ a {
     border-radius: 3px;
 }
 
+.minitile:first-of-type {
+    margin-left: 0px;
+}
+
 .tile:hover {
     box-shadow: var(--box-shadow-hover);
 }
@@ -381,6 +385,10 @@ canvas {
 
     .minitile-container {
         justify-content: center;
+    }
+
+    .minitile:first-of-type {
+        margin: 6px;
     }
 
     #profile-image {
