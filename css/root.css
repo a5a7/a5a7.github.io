@@ -37,6 +37,10 @@ html {
     padding: 10px 15px;
 }
 
+.nav-button:last-of-type {
+    padding-right: 1vh;
+}
+
 .nav-main {
     padding: 10px 0px;
 }
@@ -276,7 +280,7 @@ textarea {
     border-radius: 4px;
 }
 
-textarea{
+textarea {
     resize: none;
 }
 
