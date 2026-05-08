@@ -346,6 +346,12 @@ canvas {
     background-color: var(--gray);
 }
 
+#gen-controls div {
+    font-size: 14px;
+    margin: 2px 0;
+    text-align: center;
+}
+
 .checkbox-group {
     padding: 7px;
     margin: 9px auto;
