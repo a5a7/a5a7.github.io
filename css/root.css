@@ -43,6 +43,7 @@ html {
 
 .nav-main {
     padding: 10px 0px;
+    padding-left: 1vh;
 }
 
 .main-container {
@@ -138,7 +139,7 @@ a {
 
 .tile {
     padding: 3vh 2vw;
-    margin: 1vh min(0.75vw, 1vh);
+    margin: 1vh; /*  min(0.75vw, 1vh); */
     box-shadow: var(--box-shadow-classic);
     transition: 0.3s;
     border-radius: 3px;
