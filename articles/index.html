@@ -5,46 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/article.css">
 </head>
 
 <body>
-    <div id="page-header">
-        <div id="website-left"><a href="../index.html">Home</a></div>
-        <div id="website-right">a5a7</div>
-        <h2 id="title">Articles</h2>
+    <div id="nav">
+        <a href="../index.html">
+            <div class="nav-main">a5a7</div>
+        </a>
+        <a href="../index.html#projects">
+            <div class="nav-button">Projects</div>
+        </a>
+        <a href="./index.html">
+            <div class="nav-button">Articles</div>
+        </a>
     </div>
-    <a href="" class="article-link">
-        <div class="article-tile">
-            <div class="article-title">Article 1</div>
-            <div class="article-date">2024</div>
-            <div class="article-description">This is a description of article 1</div>
-        </div>
-    </a>
-    <a href="" class="article-link">
-        <div class="article-tile">
-            <div class="article-title">Article 1</div>
-            <div class="article-date">2024</div>
-            <div class="article-description">This is a description of article 1</div>
-            <div class="tag-container">
-                <div class="tag">Math</div>
-                <div class="tag">Coding</div>
-                <div class="tag">Coding</div>
-            </div>
-        </div>
-    </a>
-    <a href="" class="article-link">
-        <div class="article-tile">
-            <div class="article-title">Article 1</div>
-            <div class="article-date">2024</div>
-            <div class="article-description">This is a description of article 1</div>
-        </div>
-    </a>
+    <div id="article-container">
+        <h1 id="title">Articles</h1>
+        <div id="article-body"></div>
+    </div>
+    <script src="../lib/article.js"></script>
+    <script>
+    loadIndex([
+        {file: "lagrange_multipliers", tags: ["Math"]}
+    ])
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,53 @@
+Title: Understanding the Lagrangian in Lagrange Multipliers
+Date: 10/23/26
+Description: Informal approach to Lagrange multipliers.
+
+The rigorous treatment of Lagrange multipliers has already been carried out (see [Evan Chen's handout](https://web.evanchen.cc/handouts/LM/LM.pdf) for more details). The aim of this article is to provide an informal approach to Lagrange multipliers, particularly through the lens of an undergraduate taking a multivariable calculus course. 
+
+For convenience, we are working over $\mathbb{R}$. We let $\vec{x} = (x_1, ..., x_n)$ and $f(\vec{x}) = f(x_1, ..., x_n)$. Assume that any functions we define are continuous and have continuous first derivatives. Some of the details are somewhat sketchy because a complete rigorous approach would require some prerequisite understanding of topology and real analysis (like the usage of open/closed/compact sets as appropriate), something this article wishes to avoid. 
+
+# Finding the Maximum
+
+Suppose we have a function $f(\vec{x})$ and we wish to find its global maximum. In some multivariable calculus courses, you'll learn that you find candidates for where $f$ could attain the maximum by considering all boundary points and the critical points of $f$, i.e. all points where $\nabla f(\vec{x}) = \vec{0}$ or $\nabla f(\vec{x})$ is undefined (which never occurs according to our assumptions).
+
+# Adding in Constraints
+
+Lagrange multipliers come into play when we have to find the maximum of the function $f(\vec{x})$ subject to a constraint $g(\vec{x}) = C.$ Unfortunately, the previous method does not work: we cannot guarantee that the critical points of $f$ satisfy the constraints. Even worse, the maximum could be attained at a non-critical point of $f$. 
+
+It would be really nice if we could utilize the constraints and reduce this problem back into finding the critical points of perhaps another function which then provides candidates for the maximum of $f$ subject to the constraint $g$. 
+
+# Deviating From the Constraints
+
+Essentially, we want to create a new function $h$ such that the critical points of $h$ are candidates for the global maximum of $f$ subject to the constraint $g$. For this approach to actually be fruitful, we need to ensure that any deviations of $g(\vec{x})$ from $C$ result in $\vec{x}$ no longer being a critical point for $h$.
+
+We can do this by introducing a new variable $\lambda$ and utilizing this variable to check for deviations. To construct the simplest possible version of $h$, we let \[ h(\vec{x}, \lambda) = h_2(\vec{x}) - \lambda (g(\vec{x}) - C) \] where $h_2$ is another function that is not dependent on $\lambda$. Then, $\pd{h}{\lambda} = -(g(\vec{x}) - C)$. At a critical point of $h$, this would imply that \[ \pd{h}{\lambda} = 0 <=> g(\vec{x}) - C = 0 <=> g(\vec{x}) = C \] which is exactly what we want!
+
+A cleaner way to think of this is that if $\vec{x}$ is fixed, then so is $g(\vec{x})$. The function \[p(\lambda) = h(\vec{x}, \lambda) = h_2(\vec{x}) - \lambda \underbrace{(g(\vec{x}) - C)}_B \] only has a critical point when $B=0 <=> g(\vec{x}) = C$. 
+
+To figure out what $h_2$ is, observe that if $\vec{x}$ satisfies the constraint, then $h(\vec{x}, \lambda) = h_2(\vec{x})$. Since we want to maximize $f$, we're going to use the simplest idea which is to let $h_2 = f$, giving us what is known as **the Lagrangian**: \[ h(\vec{x}, \lambda) = f(\vec{x}) - \lambda (g(\vec{x}) - C). \] 
+
+# Utilizing the Lagrangian for Lagrange Multipliers
+
+The actual claim of Lagrange multipliers is this: if $\vec{x}$ is a local maximum of $f$ over a domain where $g(\vec{x}) = C$, then either $\nabla g(\vec{x}) = \vec{0}$ or there exists $\lambda$ such that $(\vec{x}, \lambda)$ is a critical point of $h$. We present a rough proof for why.
+
+We already have $\pd{h}{\lambda} = 0$ from before. If $\nabla g(\vec{x}) = \vec{0}$, then we're done. Otherwise, $\nabla g(\vec{x}) != \vec{0}$.  
+
+We can project $\nabla f(\vec{x})$ onto $\nabla g(\vec{x})$ and decompose it into two perpendicular vectors, one parallel to $\nabla g(\vec{x})$ and one perpendicular to it: \[\nabla f(\vec{x}) = c \nabla g(\vec{x}) + \underbrace{(\nabla f(\vec{x}) - c \nabla g(\vec{x}))}_{\vec{w}}\] where $\vec{w} \cdot \nabla g(\vec{x}) = 0$. If $\vec{w}$ is nonzero, consider the infinitesimal vector $d \vec{x} = t \vec{w}$ as $t -> 0^+$. The differential of $g$ is $d g = \nabla g(\vec{x}) \cdot d \vec{x} = 0$. Thus, $g(\vec{x} + d \vec{x}) = g(\vec{x}) = C$. However, \[d f = \nabla f(\vec{x}) \cdot d \vec{x} = (c \nabla g(\vec{x}) + \vec{w}) \cdot d \vec{x} = \vec{w} \cdot d \vec{x} = t|\vec{w}|^2 > 0. \] Thus, $f(\vec{x} + d \vec{x}) > f(\vec{x})$, which contradicts the maximality of $\vec{x}$. Thus, $\vec{w} = \vec{0}$. 
+
+This implies that $\nabla f(\vec{x}) = c \nabla g(\vec{x})$ for some $c$. If we let $\lambda = c$, then for all indices $i$ from $1$ to $n$, we have \[ \pd{h}{x_i} = \pd{f}{x_i} - c \pd{g}{x_i} = 0. \] This is enough to show that $(\vec{x}, c)$ is a critical point. 
+
+In practice, as with the global maximum problem with no constraints, candidates for the global maximum include all critical points of $h$, points where $\nabla g(\vec{x}) = \vec{0}$, and points on the boundaries of the domain that also satisfy the constraints. Then, evaluating all these candidates would give you the global maximum subject to a constraint. 
+
+Remark: There is a main flaw with this proof which arises in the step where we calculate the differential of $g$ as $dg = \nabla g(\vec{x}) \cdot d\vec{x} = 0$. This ends up giving us a first-order approximation for $g(\vec{x} + d\vec{x}) - g(\vec{x})$ in terms of $dx_1, ..., dx_n$; in other words, the $dx_i dx_j, dx_i dx_j dx_k, ...$ terms have been excluded. For a more accurate proof, I would need to show that there exists a curve lying within the constraint set containing $\vec{x}$ such that at $\vec{x}$, $\vec{w}$ is tangent to the curve. The case $\nabla g(\vec{x}) = \vec{0}$ might seem arbitrary but also arises from this same root cause; at first order, the differential is $0$ in all directions. This makes it problematic because $g(\vec{x} + d\vec{x}) - g(\vec{x})$ is "decided" by these higher-order terms, which we know nothing about. 
+
+Remark: An observant reader should have noticed that I switched from global maximum to local maximum when making the claim for Lagrange multipliers. If $f$ does have a global maximum at an interior point, then that point is also a local maximum, so the proof above shows it is a candidate point. If $f$ has a global maximum that is not on the interior, then it is on the boundary (notice that we consider it separately because we cannot guarantee moving along every direction). These boundary points come into consideration because taking the closure of a bounded open set produces a compact set. Over a compact set, a continuous function is guaranteed to attain a global maximum. 
+
+# Another Approach to Lagrange Multipliers
+
+The above proof hinted at another intuition for the Lagrangian: looking at the gradients of $f(\vec{x})$ and $g(\vec{x})$. If we look at the last few paragraphs, we can show that these two gradients must be parallel; for if they were not, we can move perpendicular to the gradient of $g$ at $\vec{x}$ and increase $f$. Thus, $\nabla f(\vec{x}) = \lambda \nabla g(\vec{x})$ for some $\lambda$. Of course, there's still the case of $\nabla g(\vec{x}) = \vec{0}$.
+
+Differentiating the Lagrangian with respect to $x_i$ for $1 <= i <= n$ will also yield the exact same result.
+
+# Conclusion
+
+I wrote this article to provide a better understanding of the intuition behind the Lagrangian, and how Lagrange multipliers follows from it.  Looking at the deviation from the constraints explains why Lagrange multipliers has an additional variable instead of one less variable (as you'd otherwise expect from a constraint). For a more rigorous treatment of Lagrange multipliers, especially if you need to prove it, refer to [the aforementioned handout](https://web.evanchen.cc/handouts/LM/LM.pdf). 
