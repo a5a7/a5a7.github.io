@@ -31,8 +31,10 @@ function characterFromGrayscale(x){
 }
 
 let lastTime = 0;
-let frameChange = 100; // how fast the frame should change in ms...
+let requestFrame;
+let frameChange = 300; // how fast the frame should change in ms...
 let scaleDown = 5;
+let type = 0;
 
 function render(currentTime){
     if ((currentTime - lastTime) >= frameChange){
@@ -44,15 +46,41 @@ function render(currentTime){
         for (var i = 0; i < frameSize; i += 4){
             // i, i+1, i+2, i+3 //
             var g = (frame[i] + frame[i+1] + frame[i+2])/3;
-            text += `<span style="color: rgb(${frame[i]}, ${frame[i+1]}, ${frame[i+2]})">` + characterFromGrayscale(g) + "</span>";
+            if (type == 1){
+                frame[i] = g;
+                frame[i+1] = g;
+                frame[i+2] = g;
+            }else if (type == 2){
+                frame[i] = 0;
+                frame[i+1] = 0;
+                frame[i+2] = 0;
+            }
+            if (type == 3){
+                text += `<span style="color: var(--black);">` + characterFromGrayscale(g) + "</span>"
+            }else{
+                text += `<span style="color: rgb(${frame[i]}, ${frame[i+1]}, ${frame[i+2]})">` + characterFromGrayscale(g) + "</span>";
+            }
             if ((i/4)%canvas.width == (canvas.width-1)) text += "<br />";
         }
         document.getElementById("ascii-image").innerHTML = text;
         ctx.putImageData(imageData, 0, 0);
         lastTime = currentTime;
     }
-    requestAnimationFrame(render);
+    requestFrame = requestAnimationFrame(render);
 }
+
+document.getElementById("switch-colors").addEventListener("click", (e) => {
+    type = (type+1)%3;
+});
+
+document.getElementById("stop-start").addEventListener('click', (e) => {
+    if (requestFrame){
+        cancelAnimationFrame(requestFrame);
+        requestFrame = undefined;
+    }else{
+        requestFrame = requestAnimationFrame(render);
+    }
+});
 
 async function start(){
     await startWebcam();
@@ -60,7 +88,7 @@ async function start(){
         canvas.width = Math.round(video.videoWidth/scaleDown);
         canvas.height = Math.round(video.videoHeight/scaleDown);
     }
-    requestAnimationFrame(render);
+    requestFrame = requestAnimationFrame(render);
 }
 
 start();
